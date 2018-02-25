@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SPIDER结构化系统</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+
+    <link href="jscss/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="jscss/element-ui/lib/theme-chalk/index.css" rel="stylesheet" type="text/css"/>
+
+    <script src="jscss/vue/vue.js"></script>
+    <script src="jscss/vue/axios.min.js"></script>
+    <script src="jscss/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header style="float:fixed">
+                <el-steps :active="step_index" finish-status="success" align-center>
+                    <el-step title="设定标记样本" @click="onClickStep(0)"></el-step>
+                    <el-step title="标记一个网页" @click="onClickStep(1)"></el-step>
+                    <el-step title="查看样本集合" @click="onClickStep(2)"></el-step>
+                    <el-step title="审核并发布" @click="onClickStep(3)"></el-step>
+                </el-steps>
+            </el-header>
+            <el-main>
+                <!-- step 0 -->
+                <el-row :gutter="5" v-show="step_index == 0">
+                </el-row>
+
+                <!-- step 1 -->
+                <el-row :gutter="5" v-show="step_index == 1">
+                    <el-col :span="16">
+                        <iframe id="id_detail_iframe" @load="onChildLoad" v-on:mousedown="childMouseDown($event)" id="show-iframe"  frameborder=0 name="showHere" scrolling=auto width=100% src="./local.html"></iframe>
+                    </el-col>
+                    <el-col :span="8">
+                        <div>我的数据</div>
+                        <!--
+                        <el-table :data="table_list" stripe>
+                            <el-table-column prop="key" label="字段" width="80">
+                            </el-table-column>
+                            <el-table-column prop="val" label="抽取值">
+                            </el-table-column>
+                            <el-table-column label="操作" width="80">
+                                <template slot-scope="scope">
+                                <el-button size="mini" @click="handleDel(scope.$index, scope.row)">删除</el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                        -->
+                        <pre>{{show_marked_value}}</pre>
+                        <el-button size="mini" @click="handleAdd()">添加字段</el-button>
+                    </el-col>
+                </el-row>
+                <!-- 路由出口 -->
+                <!-- 路由匹配到的组件将渲染在这里 -->
+                <!--
+                <router-view></router-view>
+                -->
+                <ul id="id_sel_list" v-bind:style="style_sel_list" class="el-scrollbar__view el-select-dropdown__list">
+                        <li v-for="k in show_sel_tags" :key="k" @click="onSelKey(k)" class="el-select-dropdown__item">
+                        {{k}}
+                        </li>
+                </ul>
+            </el-main>
+            <el-footer>
+            </el-footer>
+        </el-container>
+
+    </div>
+
+    <!-- built files will be auto injected -->
+</body>
+<script src="./jscss/path.js"></script>
+<script src="./app.js"></script>
+</html>
+

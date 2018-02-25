@@ -25,15 +25,14 @@
             return {
                 items: [
                     {
-                        icon: 'el-icon-setting',
-                        index: 'readme',
-                        title: '自述'
-                    },
-                    {
                         icon: 'el-icon-menu',
                         index: '2',
-                        title: '表格',
+                        title: '标注中心',
                         subs: [
+                            {
+                                index: 'webmarker',
+                                title: '网页标注'
+                            },
                             {
                                 index: 'basetable',
                                 title: '基础表格'
@@ -76,7 +75,12 @@
                         icon: 'el-icon-upload2',
                         index: 'drag',
                         title: '拖拽'
-                    }
+                    },
+                    {
+                        icon: 'el-icon-info',
+                        index: 'readme',
+                        title: '自述'
+                    },
                 ]
             }
         },
@@ -92,7 +96,7 @@
     .sidebar{
         display: block;
         position: absolute;
-        width: 250px;
+        width: 200px;
         left: 0;
         top: 70px;
         bottom:0;

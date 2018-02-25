@@ -7,15 +7,19 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/login'
+            redirect: '/webmarker'
         },
         {
-            path: '/readme',
+            path: '/',
             component: resolve => require(['../components/common/Home.vue'], resolve),
             children:[
                 {
                     path: '/',
                     component: resolve => require(['../components/page/Readme.vue'], resolve)
+                },
+                {
+                    path: '/webmarker',
+                    component: resolve => require(['../components/page/WebMarkerProject.vue'], resolve)
                 },
                 {
                     path: '/basetable',
@@ -50,6 +54,16 @@ export default new Router({
                     component: resolve => require(['../components/page/DragList.vue'], resolve)    // 拖拽列表组件
                 }
             ]
+        },
+        {
+            path: '/detail',
+            component: resolve => require(['../components/common/Detail.vue'], resolve),
+            children:[
+                {
+                    path: '/detail/webmarker_detail',
+                    component: resolve => require(['../components/page/WebMarkerDetail.vue'], resolve)
+                },
+            ],
         },
         {
             path: '/login',

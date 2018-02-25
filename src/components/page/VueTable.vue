@@ -2,7 +2,7 @@
     <div class="table">
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-menu"></i> 表格</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-menu"></i> 网页标注</el-breadcrumb-item>
                 <el-breadcrumb-item>Vue表格组件</el-breadcrumb-item>
             </el-breadcrumb>
         </div>

@@ -1,6 +1,8 @@
 <template>
-    <div class="header">
-        <div class="logo">后台管理系统</div>
+    <div class="header" id="id_header">
+        <div class="logo">
+            <router-link id="main_title" :to="'/'">SPIDER管理系统v3.0</router-link>
+        </div>
         <div class="user-info">
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -45,12 +47,15 @@
         height: 70px;
         font-size: 22px;
         line-height: 70px;
+    }
+    #main_title {
         color: #fff;
     }
     .header .logo{
         float: left;
         width:250px;
         text-align: center;
+        color: #fff;
     }
     .user-info {
         float: right;

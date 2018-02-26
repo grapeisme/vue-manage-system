@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <v-head></v-head>
+        <!--<v-head></v-head> -->
         <div class="content">
             <transition name="move" mode="out-in">
                 <router-view></router-view>
@@ -14,13 +14,17 @@
     export default {
         components:{
             vHead
-        }
+        },
+        data: function() {
+            document.title = document.title + "-网页标注";
+        },
     }
 </script>
 
 <style scoped>
     .content {
         left: 0;
-        padding: 10px;
+        top: 0px;
+        padding: 0px;
     }
 </style>
